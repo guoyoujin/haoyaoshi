@@ -1,5 +1,6 @@
 # coding: utf-8
-$:.push File.expand_path("../lib", __FILE__)
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'haoyaoshi/version'
 
 Gem::Specification.new do |spec|
@@ -7,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Haoyaoshi::VERSION
   spec.authors       = ["guoyoujin"]
   spec.email         = ["guoyoujin123@gmail.com"]
-
-  spec.summary       = "hao yao shi api"
-  spec.description   = "hao yao shi api"
+  spec.summary       = "trycatch"
+  spec.description   = %q{haoyaoshi drug api Ruby Server SDK.}
   spec.homepage      = "https://github.com/guoyoujin/haoyaoshi"
   spec.license       = "MIT"
 
@@ -29,7 +29,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "rest-client", '>= 1.7'
   spec.add_runtime_dependency "activesupport", '>= 3.2'
-
   spec.add_development_dependency "bundler", '~> 1'
   spec.add_development_dependency "rake", '~> 11.2'
   spec.add_development_dependency "fakeweb", '~> 1'

@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-####配置数据
+#### 配置数据
 ```ruby
 haoyaoshiNameSpace = Setting.haoyaoshi.name_space            #redis命名空间
 exist_keys = redis.keys("#{haoyaoshiNameSpace}:*")           
@@ -50,48 +50,48 @@ $client_haoyaoshi ||= Haoyaoshi::Client.new(
   {redis_key: haoyaoshiNameSpace}   #存取在redis的表名
 )
 ```
-####获取药品
+#### 获取药品
 ```ruby
  $client_haoyaoshi.get_drug_list({startDate: now_date.beginning_of_month.try(:strftime,"%Y-%m-%d"), endDate: now_date.end_of_month.try(:strftime,"%Y-%m-%d")})
 ```
-####获取图片
+#### 获取图片
 ```ruby
 $client_haoyaoshi.get_drug_image({startDate:"2018-01-05",endDate:"2018-01-05"})
 ```
-####获取库存
+#### 获取库存
 ```ruby
 $client_haoyaoshi.get_drug_price({startDate:"2018-01-05",endDate:"2018-01-05"})
 ```
-####获取物流商
+#### 获取物流商
 ```ruby
 $client_haoyaoshi.get_company({startDate:"2018-01-05",endDate:"2018-01-05"})
 ```
 
-####获取电子发票
+#### 获取电子发票
 ```ruby
 $client_haoyaoshi.get_e_invoice_url("手机号","订单号")
 ```
 
-####获取物流单号信息
+#### 获取物流单号信息
 ```ruby
 $client_haoyaoshi.get_deliveries("订单号")
 ```
 
-####获取订单审核信息
+#### 获取订单审核信息
 ```ruby
 $client_haoyaoshi.get_order_rx({startTime: Time.now.at_beginning_of_day.try(:strftime,"%Y-%m-%d %H:%M:%S"),endTime: Time.now.try(:strftime,"%Y-%m-%d %H:%M:%S"),pageIndex: 1, pageSize: 20})
 ```
-####同步订单发货状态
+#### 同步订单发货状态
 ```ruby
 $client_haoyaoshi.post_order({})
 ```
 
-####推送订单审核
+#### 推送订单审核
 ```ruby
 $client_haoyaoshi.post_order_rx({})
 ```
 
-####推送处方审核
+#### 推送处方审核
 ```ruby
 $client_haoyaoshi.post_order_prescription_url({})
 ```
